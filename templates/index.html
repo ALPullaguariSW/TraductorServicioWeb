@@ -4,20 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Traductor de Voz</title>
+    <!-- Enlazar el archivo CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Traductor de Voz en Tiempo Real</h1>
-    <form action="/listen" method="post">
-        <label for="language">Selecciona el idioma de destino:</label>
-        <select name="language" id="language">
-            <option value="es">Español</option>
-            <option value="en">Inglés</option>
-            <option value="fr">Francés</option>
-            <option value="de">Alemán</option>
-            <option value="it">Italiano</option>
-        </select><br><br>
+    <div class="container">
+        <h1>Traductor de Voz</h1>
+        <p>Habla algo y será traducido al idioma seleccionado.</p>
+        
+        <button class="btn" onclick="startListening()">Escuchar</button>
 
-        <button type="submit">Escuchar y Traducir</button>
-    </form>
+        <div class="result">
+            <p id="original-text">Texto Original: <span id="original"></span></p>
+            <p id="translated-text">Texto Traducido: <span id="translated"></span></p>
+        </div>
+    </div>
+
+    <!-- Agregar JavaScript si es necesario -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function startListening() {
+            // Aquí iría tu lógica de escuchar y traducir
+            console.log("Escuchando...");
+        }
+    </script>
 </body>
 </html>
