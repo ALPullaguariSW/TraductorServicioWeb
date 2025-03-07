@@ -22,7 +22,7 @@ engine.setProperty('volume', 1)  # Volumen de la voz
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)  # Cambiar la voz, si hay varias opciones
 
-# Idiomas soportados (puedes agregar más idiomas si lo deseas)
+# Idiomas soportados
 languages = {
     'en': 'English',
     'es': 'Español',
@@ -88,9 +88,13 @@ def index():
 
 @app.route('/listen', methods=['POST'])
 def listen_and_translate_api():
-    target_language = request.json['target_language']
+    data = request.get_json()
+    target_language = data.get('target_language', 'es')  # Usa 'es' como valor predeterminado
+    if target_language not in languages:
+        return jsonify({"error": "Idioma no soportado"}), 400
+    
     translated_text = listen_and_translate(target_language)
     return jsonify({"translated_text": translated_text})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
