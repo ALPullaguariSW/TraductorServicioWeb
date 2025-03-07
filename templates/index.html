@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traductor de Voz</title>
+</head>
+<body>
+    <h1>Traductor de Voz en Tiempo Real</h1>
+    <form action="/listen" method="post">
+        <label for="language">Selecciona el idioma de destino:</label>
+        <select name="language" id="language">
+            <option value="es">Español</option>
+            <option value="en">Inglés</option>
+            <option value="fr">Francés</option>
+            <option value="de">Alemán</option>
+            <option value="it">Italiano</option>
+        </select><br><br>
+
+        <button type="submit">Escuchar y Traducir</button>
+    </form>
+</body>
+</html>
